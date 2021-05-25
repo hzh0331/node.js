@@ -1,6 +1,6 @@
 const {readFile, writeFile} = require('fs')
 
-readFile('./first.txt', 'utf-8', (err, result)=>{
+readFile('../first.txt', 'utf-8', (err, result)=>{
     if(err){
         console.log('err: ' + err)
         return
@@ -8,7 +8,7 @@ readFile('./first.txt', 'utf-8', (err, result)=>{
 
     const first = result
 
-    readFile('./first.txt', 'utf-8', (err, result)=>{
+    readFile('../second.txt', 'utf-8', (err, result)=>{
         if(err){
             console.log('err: ' + err)
             return
