@@ -6,7 +6,7 @@ const url = require('url')
 http.createServer((req, res) =>{
     res.writeHead(200, {"Content-type":"text.txt/html;charset='utf-8'"})
 
-    res.write("hello node.js")
+    res.write("hello 1_node.js")
 
     res.end()
 

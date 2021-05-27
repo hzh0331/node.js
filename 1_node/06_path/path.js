@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('1_node/06_path/path')
 
 console.log(path.sep)
 
