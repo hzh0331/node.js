@@ -1,7 +1,15 @@
 const express = require('express')
 
+const logger = require('./logger')
+const authorize = require('./authorize')
 const {products} = require('./data')
 const app = express()
+
+app.use('/api/',[authorize, logger])
+
+app.get('/', (req, res)=>{
+    res.send('Home')
+})
 
 app.get('/api/product', (req, res)=>{
     const productInfo = products.map((product)=>{
