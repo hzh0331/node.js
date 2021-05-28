@@ -17,6 +17,22 @@ app.get('/api/product/:productID', (req, res)=>{
     res.json(product)
 })
 
+app.get('/api/v1/query', (req, res)=>{
+    const {search, limit} = req.query
+    let sortedProducts = [...products]
+    if(search){
+        sortedProducts = sortedProducts.filter((product)=>{
+            return product.name.startsWith(search)
+        })
+    }
+
+    if (limit){
+        sortedProducts = sortedProducts.slice(0, Number(limit))
+    }
+
+    res.json(sortedProducts)
+})
+
 app.listen(5000, ()=>{
     console.log('server is listening on port 5000')
 })
