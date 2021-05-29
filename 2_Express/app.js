@@ -42,10 +42,18 @@ app.put('/api/people/:id', (req, res)=>{
         }
         return person
     })
-    console.log(newPeople)
     res.status(200).json({success:true, data: newPeople})
 })
 
+app.delete('/api/people/:id', (req, res)=>{
+    const {id} = req.params
+    const person = people.find(person => person.id === Number(id))
+    if(!person){
+        return res.status(404).json({success:false, msg:'person not exist'})
+    }
+    const newPeople = people.filter(person => person.id !== Number(id))
+    res.status(200).json({success:true, data:newPeople})
+})
 
 app.listen(5000, ()=>{
     console.log("server is listening on port 5000")
